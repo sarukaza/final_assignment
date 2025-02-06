@@ -1,0 +1,43 @@
+' @startuml ユーザー
+' actor "ユーザー" as User
+' rectangle 券売機 {
+'   usecase "商品一覧を表示する" as UC1
+'   usecase "商品を選択する" as UC2
+'   usecase "カートの内容を確認する" as UC3
+'   usecase "支払いを行う" as UC4
+'   usecase "おつりを受け取る" as UC5
+' }
+
+' User -right-> UC1
+' UC1 -right-> UC2
+' UC3 -right-> UC4
+' UC1 -down- UC3 
+
+' UC2 --> UC3 : "繰り返し選択"
+' UC4 -right-> UC5 : "決済完了後"
+' @enduml
+
+@startuml ユースケース図
+actor "利用者" as User
+actor "管理者" as admin
+
+rectangle 券売機 {
+  usecase "商品を選択する" as UUC1
+  usecase "カートの内容を確認する" as UUC2
+  usecase (<u>支払いをする</u>\n拡張点\nお釣りを受け取る) as UUC3
+  usecase "おつりを受け取る" as UUC4
+  usecase "売り上げをリセットする" as AUC1
+  usecase "商品の価格を変更する" as AUC2
+  usecase "管理画面を終了する" as AUC3
+}
+
+User --> UUC1
+UUC1 --> UUC2
+UUC2 --> UUC3
+UUC3 <-- UUC4: <<extend>>
+
+admin --> AUC1
+admin --> AUC2
+admin --> AUC3
+
+@enduml

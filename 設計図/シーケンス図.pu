@@ -1,0 +1,31 @@
+@startuml シーケンス図
+hide footbox
+'厳密なUMLに準拠する(矢印の端を矢じり形ではなく三角形にする等)
+skinparam style strictuml
+' メッセージテキストの位置を矢印線の中央に配置する
+skinparam sequenceMessageAlign center
+
+Actor 利用者  as user
+
+participant ":券売機" as obA
+participant ":商品" as obB
+participant ":カート" as obC
+participant ":支払処理" as obD
+
+activate user
+user -> obA : 商品を選択する
+activate obA
+obA -> obB : 商品を表示する
+activate obB
+obA -> obB : 商品を選択する
+activate obB
+obB -> obC : カートの内容を確認する
+activate obC
+obC -> obD : 支払いへ進む
+deactivate obA
+deactivate obC
+deactivate obB
+deactivate obB
+activate obD
+deactivate obD
+@enduml

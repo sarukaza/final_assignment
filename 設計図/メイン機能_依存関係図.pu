@@ -1,0 +1,16 @@
+@startuml 券売機シミュレータ
+|ユーザー|
+start
+
+
+:メイン機能を作る;
+fork
+ :ユーザー画面;
+fork again
+ :管理画面;
+end fork
+:全体システム;
+
+:完成;
+stop
+@enduml
