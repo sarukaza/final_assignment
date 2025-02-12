@@ -1,0 +1,33 @@
+@startuml 券売機
+
+object "<u>商品1：商品</u>" as item1 {
+    商品名 = 特製ラーメン 
+    価格 = 1000円
+}
+
+object "<u>商品2：商品</u>" as item2 {
+    商品名 = 醤油ラーメン
+    価格 = 780円
+}
+
+object "<u>商品3：商品</u>" as item3 {
+    商品名 = 塩ラーメン
+    価格 = 880円
+}
+
+object "<u>カート1：カート</u>" as Amount1 {
+    アイテム = 特製ラーメン、醤油ラーメン、塩ラーメン
+    合計金額 = 2660円
+}
+object "<u>支払い処理1：支払処理</u>" as Amount2 {
+    支払い処理 = 2660円
+}
+
+item1 --> Amount1
+item2 --> Amount1
+item3 --> Amount1
+
+Amount1 --> Amount2
+
+
+@enduml
