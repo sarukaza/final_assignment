@@ -1,22 +1,3 @@
-' @startuml ユーザー
-' actor "ユーザー" as User
-' rectangle 券売機 {
-'   usecase "商品一覧を表示する" as UC1
-'   usecase "商品を選択する" as UC2
-'   usecase "カートの内容を確認する" as UC3
-'   usecase "支払いを行う" as UC4
-'   usecase "おつりを受け取る" as UC5
-' }
-
-' User -right-> UC1
-' UC1 -right-> UC2
-' UC3 -right-> UC4
-' UC1 -down- UC3 
-
-' UC2 --> UC3 : "繰り返し選択"
-' UC4 -right-> UC5 : "決済完了後"
-' @enduml
-
 @startuml ユースケース図
 actor "利用者" as User
 actor "管理者" as admin
